@@ -1,20 +1,18 @@
 n = int(input())
 song = []
 down = []
-songsum = []
+ans = []
 for i in range(n):
     s, d = map(int, input().split())
-    if i == 0:
-        down.append(d)
-        songsum.append(s)
-        song.append(s)
-    else:
-        down.append(down[i - 1] + d)
-        songsum.append(songsum[i - 1] + i)
-        song.append(s)
-start = down[0]
-state = down[0]
-last = 0
-print(down)
-print(song)
-# for i in range(n):
+    song.append(s)
+    down.append(d)
+sum = down[0]
+delsum = 0
+for i in range(n - 1):
+    sum += down[i + 1]
+    delsum += song[i]
+    ans.append(sum - delsum)
+if n == 1:
+    print(down[0])
+else:
+    print(max(ans))
