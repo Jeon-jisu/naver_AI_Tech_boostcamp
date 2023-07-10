@@ -5,7 +5,6 @@ n, c = map(int, input().split())
 numlst = list(map(int,input().split()))
 counter = Counter(numlst)
 counter = sorted(counter.items(), key = lambda item: item[1], reverse = True)
-# print(counter)
 keylst = list()
 while counter:
     ttmp = counter[0]
